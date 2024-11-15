@@ -1,0 +1,5 @@
+data=set()
+a=input("Enter the data: ")
+data.add(int(a))
+data.add(str(float(a)))
+print(data)
