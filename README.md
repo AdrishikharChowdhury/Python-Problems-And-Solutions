@@ -1,4 +1,4 @@
-# Python Coding Project
+# Python Problems And Solutions
 
 Welcome to the **Python Coding Project**! This repository contains Python scripts and applications that showcase various functionalities, including data processing, automation, web scraping, and more.
 
