@@ -10,6 +10,7 @@ class Bank:
         return self.acc_bal
     def credit(self,credit):
         self.acc_bal+=credit
+        bank_balance-=1
         print(credit,"has been credited")
         return self.acc_bal
     def balance(self):
@@ -34,6 +35,9 @@ def create_accounts():
         print("Account number is already in use please change it")
         create_accounts
     acc_balance=float(input("Enter the account balance: "))
+    if(acc_balance<0 or acc_balance>50000):
+        print("Invalid amount entered")
+        create_accounts()
     pas=input("Register your password: ")
     if(pas==__master_key):
         print("Can't use this as a password, try again....")
@@ -70,6 +74,8 @@ def debit_balance(account,amount):
         print("Insufficient Balance")
         return False
 def credit_balance(account,amount):
+    if(amount<0 or amount>=50000):
+        print("Invalid amount ")
     new_balance = account.credit(amount)
     account.acc_bal = new_balance
     print(amount," has been credited from Account No. :",account.acc_no)
@@ -240,7 +246,7 @@ def bank_menu():
             return True
 # Main programme
 infor=[]
-n=int(input("enter the no. of info you want to store: "))
+n=int(input("Enter the no. of bank accounts you want to store: "))
 i=0
 # Initial account making process
 while i<n:
