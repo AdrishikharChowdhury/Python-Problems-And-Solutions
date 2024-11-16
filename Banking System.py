@@ -74,7 +74,7 @@ def debit_balance(account,amount):
         print("Insufficient Balance")
         return False
 def credit_balance(account,amount):
-    if(amount<0 or amount>=50000):
+    if(amount<0 or amount>=10000):
         print("Invalid amount ")
     new_balance = account.credit(amount)
     account.acc_bal = new_balance
