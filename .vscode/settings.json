@@ -1,8 +1,11 @@
 {
   "cSpell.words": [
     "accno",
+    "Haris",
     "infor",
     "khul",
+    "pyaudio",
+    "pyttsx",
     "rando"
   ],
   "C_Cpp_Runner.cCompilerPath": "gcc",
