@@ -19,7 +19,7 @@ def speak(text):
     gola.setProperty('voice', voices[1].id) 
     gola.say(text)
     gola.runAndWait()
-speak("Hello I am Ruprekha, Your Personal Assistant")
+speak("Hello I am Tanisha, Your Personal Assistant")
 speak("Enter your name: ")
 name=input("Enter your name: ")
 telltime(name)
