@@ -2,7 +2,7 @@ import pyttsx3
 import time
 def telltime(name):
     c_time=time.localtime()
-    hour=int(c_time.tm_hour)
+    hour=int(time.strftime("%H"))
     formatted_time=time.strftime("%H:%M", c_time)
     if hour>=5 and hour<12:
         print(f"Good Morning {name}")
@@ -19,7 +19,7 @@ def speak(text):
     gola.setProperty('voice', voices[1].id) 
     gola.say(text)
     gola.runAndWait()
-speak("Hello I am Tanisha, Your Personal Assistant")
+speak("Hello I am Ruprekha, Your Personal Assistant")
 speak("Enter your name: ")
 name=input("Enter your name: ")
 telltime(name)
