@@ -1,8 +1,10 @@
 import pyttsx3
 import time
 import speech_recognition as sr
+def telldate(name):
+    current_date = time.strftime("%Y-%m-%d")
+    speak(f"Date is {current_date}")
 def telltime(name):
-    current_date = time.strftime("%Y-%m-%d")  # Format: YYYY-MM-DD
     c_time=time.localtime()
     hour=int(time.strftime("%H"))
     formatted_time=time.strftime("%H:%M", c_time)
@@ -13,7 +15,6 @@ def telltime(name):
     else:
         speak(f"Good Night {name}")
     speak(f"Time is {formatted_time}")
-    speak(f"Date is {current_date}")
 def speak(text):
     gola = pyttsx3.init()
     voices = gola.getProperty('voices')
@@ -22,7 +23,7 @@ def speak(text):
     gola.setProperty('voice', voices[1].id) 
     gola.say(text)
     gola.runAndWait()
-speak("Hello I am Mecha Senku, Your Personal Assistant")
+speak("Hello I am Tanie, Your Personal Assistant")
 speak("What is Your name: ")
 recognizer = sr.Recognizer()
 source=sr.Microphone()
@@ -31,4 +32,20 @@ source.__enter__()
 audio = recognizer.listen(source)
 source.__exit__(None, None, None)
 name = recognizer.recognize_google(audio)
-telltime(name)
+while True:
+    speak(f"What do you want to know {name},")
+    print("Listening...")
+    source.__enter__()
+    audio1 = recognizer.listen(source)
+    source.__exit__(None, None, None)
+    choice=recognizer.recognize_google(audio1)
+    match(choice):
+        case 'time please':
+            telltime(name)
+        case 'date please':
+            telldate(name)
+        case 'shutdown':
+            speak("It was nice to help you")
+            break
+        case _:
+            speak("Sorry, I can't understand,Can You repeat what you said")
