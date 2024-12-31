@@ -1,7 +1,7 @@
 import pyttsx3
 import time
 import speech_recognition as sr
-def telldate(name):
+def telldate():
     current_date = time.strftime("%Y-%m-%d")
     speak(f"Date is {current_date}")
 def telltime(name):
@@ -23,15 +23,10 @@ def speak(text):
     gola.setProperty('voice', voices[1].id) 
     gola.say(text)
     gola.runAndWait()
-speak("Hello I am Tanie, Your Personal Assistant")
-speak("What is Your name: ")
+name="Adrishikhar"
+speak("Hello, Adrishikhar I am Tanie, Your Personal Assistant")
 recognizer = sr.Recognizer()
 source=sr.Microphone()
-print("Listening...")
-source.__enter__()
-audio = recognizer.listen(source)
-source.__exit__(None, None, None)
-name = recognizer.recognize_google(audio)
 while True:
     speak(f"What do you want to know {name},")
     print("Listening...")
@@ -43,7 +38,7 @@ while True:
         case 'time please':
             telltime(name)
         case 'date please':
-            telldate(name)
+            telldate()
         case 'shutdown':
             speak("It was nice to help you")
             break
